@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Handle HTTP
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://notebook-api.shubhamschahar.com/$1 [R,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
