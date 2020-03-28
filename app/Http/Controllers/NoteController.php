@@ -16,7 +16,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return response()->json(auth()->user()->notes);
+        return response()->json(auth()->user()->notes()->orderBy('title')->get());
     }
 
     /**
